@@ -1,10 +1,11 @@
 Frmework Overview 
 
 The API test framework is developed in RestAssured - TestNG - maven framework
-Setup:
-1. Clone the repository:
-2. 
 
+Test Scenarios: 
+
+Areas of improvement:
+Handle payload data - Implementation of data serialisation using Jackson api
 
 
 Allure Report
