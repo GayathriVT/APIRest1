@@ -1,45 +1,40 @@
-Frmework Overview 
+# Petstore API automation 
+
+## Framework Overview
 
 The API test framework is developed in RestAssured - TestNG - maven framework
 
-Test Scenarios: 
+### Test Scenarios:
 
-Areas of improvement:
-Handle payload data - Implementation of data serialisation using Jackson api
+Create the following automated API tests for DEMO PET STORE https://petstore.swagger.io/ :
 
+1. Get Request for reading all available pets. Assert expected result for "available" status
+2. Post a new available pet to the store. Assert new pet added.
+3. Get request to find the pet by id. Assert expected result for Id and name
+4. Update this pet status to "sold". Assert status updated.
+5. Delete this pet. Assert deletion.
+6. Delete request to delete already deleted pet, operation fails with Error code 404.Assert expected result - Negative TC. 
+7. Get request to find pet by the deleted id - already deleted pet should not exist.Assert expected result for message - Negative TC
 
-Allure Report
-
-Folder Structure
-src/test/java: 
-src/test/resources: FileReader for payload
-
-petstore-rest-assured
-The testing framework for PetStore-service: https://petstore.swagger.io/
-Get "available" pets. Assert expected result
-Post a new available pet to the store. Assert new pet added.
-Update this pet status to "sold". Assert status updated.
-Delete this pet. Assert deletion.
-
-Run
-
-For run tests use the command:
-mvn clean test
-
-For generate allure report use the command:
-allure serve allure-results
-
-To view the report, use the following command:
-allure open allure-report
-
-Execute your TestNG tests using Maven:
-mvn clean test
+### Run
 
 Test execution : the tests were executed from IntelliJ
-the code does some additional testing, such as "trying to delete already deleted pet", "trying to get not existing pet (because it was deleted)
-   
-   - the test execution order is controlled by priority as parameter of @Test annotations. If priority is not set, then some tests may fail, as the test may try to 
-     delete a Pet, that was not uploaded (operation POST must preceed DELETE), etc.
+To run the TestNG tests use the command: mvn clean test
+To generate allure report use the command: allure serve allure-results
+To view the report, use the following command: allure open allure-report
 
-     ![image](https://github.com/user-attachments/assets/2d7d1d8d-4fbb-48eb-a172-3c47818e5d57)
+Folder Structure src/test/java: src/test/resources: FileReader for PetToUpload.json
+Testng File is "testngPetStore.xml"
+ 
+
+## Areas of improvement: 
+Handle payload data - Implementation of data serialisation using Jackson api
+
+## Test Results
+
+![image](https://github.com/user-attachments/assets/a8a116b4-3cf8-42c7-9728-8ffb25df5af2)
+
+![image](https://github.com/user-attachments/assets/63668060-ecb0-4390-a9f4-ecfec0c5530c)
+
+
 
